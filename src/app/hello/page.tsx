@@ -8,8 +8,8 @@ const Hello: React.FC = () => {
   };
   return (
     <div>
+      This should reflect in Sonar
       <h1>{username}</h1>
-
       <button id="click-me-button" name="click-me-button" onClick={onClick}>
         Click me
       </button>
