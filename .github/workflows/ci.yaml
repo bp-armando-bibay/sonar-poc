@@ -51,6 +51,7 @@ jobs:
         run: |
           sonar-scanner \
             -Dsonar.projectKey=$SONAR_PROJECT_KEY \
+            -Dsonar.organization=$SONAR_ORG \
             -Dsonar.sources=src/ \
             -Dsonar.tests=__tests__/ \
             -Dsonar.test.inclusions="**/*.test.ts" \
