@@ -8,7 +8,7 @@ const Hello: React.FC = () => {
   };
   return (
     <div>
-      This should reflect in Sonar
+      This should reflect in Sonars
       <h1>{username}</h1>
       <button id="click-me-button" name="click-me-button" onClick={onClick}>
         Click me
