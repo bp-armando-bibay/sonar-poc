@@ -47,15 +47,13 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
           SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}
-          SONAR_ORG: ${{ secrets.SONAR_ORG }} # Add this environment variable to your secrets
         run: |
           sonar-scanner \
             -Dsonar.projectKey=$SONAR_PROJECT_KEY \
-            -Dsonar.organization=$SONAR_ORG \  # Add this line to specify the organization
             -Dsonar.sources=src/ \
             -Dsonar.tests=__tests__/ \
             -Dsonar.test.inclusions="**/*.test.ts" \
             -Dsonar.typescript.lcov.reportPaths=coverage/lcov.info \
             -Dsonar.junit.reportPaths=./coverage/jest-test-results.xml \
             -Dsonar.host.url=$SONAR_HOST_URL \
-            -Dsonar.token=$SONAR_TOKEN
+            -Dsonar.token=$SONAR_TOKEN \
