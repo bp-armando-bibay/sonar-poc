@@ -44,6 +44,7 @@ jobs:
 
       - name: Print Sonar Variables
         run: |
+          npm test -- --coverage
           echo "Sonar Host URL: ${{ secrets.SONAR_HOST_URL }}"
           echo "Sonar Token: ${{ secrets.SONAR_TOKEN }}"
           echo "Sonar Project Key: ${{ secrets.SONAR_PROJECT_KEY }}"
