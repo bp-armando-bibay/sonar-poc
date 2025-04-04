@@ -42,6 +42,15 @@ jobs:
           mv sonar-scanner-5.0.1.3006-linux sonar-scanner
           echo "$(pwd)/sonar-scanner/bin" >> $GITHUB_PATH
 
+      - name: SEE VARS
+        run: |
+          echo "Sonar Host URL: ${{ secrets.SONAR_HOST_URL }}"
+          echo "Sonar Token: ${{ secrets.SONAR_TOKEN }}"
+          echo "Sonar Project Key: ${{ secrets.SONAR_PROJECT_KEY }}"
+          echo "Sonar Org: ${{ secrets.SONAR_ORG }}"
+          echo "Sonar Project Name: ${{ secrets.SONAR_PROJECT_NAME }}"
+          echo "Sonar Project Version: ${{ secrets.SONAR_PROJECT_VERSION }}"
+
       - name: SonarCube Analysis
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
@@ -49,7 +58,6 @@ jobs:
           SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}
           SONAR_ORG: ${{ secrets.SONAR_ORG }} # Ensure you have this secret set
           run: |
-            echo "Sonar Host URL: $SONAR_HOST_URL"
             sonar-scanner \
               -Dsonar.projectKey=$SONAR_PROJECT_KEY \
               -Dsonar.organization=$SONAR_ORG \
